@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Velvet Pages — BL Digital Library</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-book-bookmark"></i>
+      <span>Aejian's BL Library</span>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="controls">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search title, author, tag...">
+      </div>
+      <div class="genre-filter">
+        <select id="genreSelect">
+          <option value="all">All Genres (30 Stories)</option>
+          <option value="romance">Modern Romance</option>
+          <option value="fantasy">Fantasy & Magic</option>
+          <option value="historical">Historical & Xianxia</option>
+          <option value="scifi">Sci-Fi & Cyberpunk</option>
+          <option value="supernatural">Supernatural & Vampires</option>
+          <option value="office">Office & Rivals</option>
+          <option value="campus">Campus & Youth</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bookshelf Main View -->
+  <main class="library-container">
+    <div class="shelf-header">
+      <h2><i class="fa-solid fa-layer-group"></i> Featured BL Collection</h2>
+      <span id="storyCount" class="badge">30 Books Available</span>
+    </div>
+
+    <!-- Dynamic Bookshelf Grid -->
+    <div id="bookshelf" class="bookshelf-grid"></div>
+  </main>
+
+  <!-- Reading Modal Container -->
+  <div id="readerModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <button class="close-btn" id="closeModalBtn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+
+      <!-- Modal Content Header -->
+      <div class="book-header-banner">
+        <div class="spine-strip" id="modalSpine"></div>
+        <div class="book-meta-header">
+          <span class="genre-tag" id="modalGenre">Fantasy</span>
+          <h1 id="modalTitle">Story Title Here</h1>
+          <p class="author-line">By <span id="modalAuthor">Author Name</span></p>
+          <p class="synopsis" id="modalSynopsis"></p>
+        </div>
+      </div>
+
+      <!-- Reader Controls Bar -->
+      <div class="reader-toolbar">
+        <div class="tool-group">
+          <label><i class="fa-solid fa-font"></i> Size:</label>
+          <button id="decFont"><i class="fa-solid fa-minus"></i></button>
+          <button id="incFont"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <div class="tool-group">
+          <label><i class="fa-solid fa-palette"></i> Theme:</label>
+
+          <button class="theme-btn light" data-theme="light"></button>
+          <button class="theme-btn sepia" data-theme="sepia"></button>
+          <button class="theme-btn dark" data-theme="dark"></button>
+        </div>
+        <div class="tool-group">
+          <button id="bookmarkBtn" class="action-btn"><i class="fa-regular fa-bookmark"></i> Bookmark</button>
+        </div>
+      </div>
+
+      <!-- Story Text Display Container -->
+      <div id="readerBody" class="reader-body theme-dark">
+        <div class="chapter-nav">
+          <button id="prevChapter" class="ch-btn"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+          <span id="chapterTitle" class="ch-title">Chapter 1</span>
+          <button id="nextChapter" class="ch-btn">Next <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div id="storyContent" class="story-paragraphs"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
